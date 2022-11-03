@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'pegawai',
       component: () => import("../views/Pegawai.vue")
     },
+    {
+      path: '/pembelajaran',
+      name: 'pembelajaran',
+      component: () => import("../views/Pembelajaran.vue")
+    },
   ]
 })
 

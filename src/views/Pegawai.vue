@@ -1,7 +1,7 @@
 <script setup>
 import { 
         NCard, NDataTable, NButton, NSpace, NModal, NForm, 
-        NFormItem, NInput, useMessage, useDialog 
+        NFormItem, NInput, useMessage, useDialog, NSelect
     } 
 from 'naive-ui';
 import { h, ref, onMounted, computed } from 'vue';
@@ -16,12 +16,19 @@ const message = useMessage();
 const dialog = useDialog()
 
 const editId = ref(null)
+
 const formData = ref({
   nama: '',
   usia: 0,
-  jabatan: ''
+  jabatan: '',
+  gender: ''
 })
 
+const getGender = [
+  {label:"Male", value:"male"},
+  {label:"Female", value:"female"}
+]
+      
 const showModal = ref(false)
 
 const deleteLoadingId = ref(null)
@@ -31,6 +38,7 @@ const onEditPegawai = (pegawai) => {
   formData.value.nama = pegawai.nama
   formData.value.usia = pegawai.usia
   formData.value.jabatan = pegawai.jabatan
+  formData.value.gender = pegawai.gender
   showModal.value = true
 }
 
@@ -39,6 +47,7 @@ const resetForm = () => {
   formData.value.nama = ''
   formData.value.usia = 0
   formData.value.jabatan = ''
+  formData.value.gender = [],
   showModal.value = false
 }
 
@@ -170,6 +179,7 @@ const columns = [
   { title: "Nama", key: 'nama' },
   { title: "Usia", key: 'usia' },
   { title: "Jabatan", key: 'jabatan' },
+  { title: "Jenis Kelamin", key: 'gender' },
   {
     title: "Action",
     key: 'action',
@@ -241,6 +251,14 @@ const handlePageChange = (page) => {
         <NFormItem label="Jabatan" path="jabatan">
           <NInput v-model:value="formData.jabatan" />
         </NFormItem>
+        <NFormItem label="Gender" path="gender">
+          <NSelect
+            v-model:value="formData.gender"
+            placeholder="Select"
+            :options="getGender"
+          />
+        </NFormItem>
+        
         <NFormItem label="&nbsp;">
           <NButton type="info" ghost attr-type="submits">Save</NButton>
         </NFormItem>

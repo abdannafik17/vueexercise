@@ -5,7 +5,8 @@
 
     const menus = [
         {title: 'Home', to: '/'},
-        {title: 'Pegawai', to: '/pegawai'}
+        {title: 'Pegawai', to: '/pegawai'},
+        {title: 'Pembelajaran', to: '/pembelajaran'},
     ]
 
     const menuOptions = menus.map((menu) => {
