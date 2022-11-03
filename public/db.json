@@ -1,0 +1,16 @@
+{
+  "pegawai": [
+    {
+      "nama": "Fulan Fulanah",
+      "usia": "30",
+      "jabatan": "Analyst Sistem Informasi HC",
+      "id": 1
+    },
+    {
+      "nama": "Halimah",
+      "usia": "21",
+      "jabatan": "Administrasi SDM",
+      "id": 2
+    }
+  ]
+}
